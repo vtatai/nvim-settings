@@ -24,7 +24,11 @@ Plug 'solarnz/thrift.vim'
 Plug 'tpope/vim-surround'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
-Plug 'weynhamz/vim-plugin-minibufexpl'
+"Plug 'weynhamz/vim-plugin-minibufexpl'
+
+"Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
+Plug 'natebosch/vim-lsc'
+Plug 'jalused/ZoomSplit'
 
 " Initialize plugin system
 call plug#end()
@@ -50,7 +54,7 @@ nmap <C-S-Down> <C-W>+<C-W>+
 "nmap <C-D-j> <C-W>+<C-W>+
 " Resize vertical split window
 nmap <C-S-Left> <C-W>><C-W>>
-nmap <C-S-Right> <C-W><<C-W>
+nmap <C-S-Right> <C-W><<C-W><
 "nmap <C-D-h> <C-W>><C-W>>
 "nmap <C-D-l> <C-W><<C-W>
 
@@ -91,7 +95,7 @@ imap <C-e> <esc>$i<right>
 imap <C-a> <esc>0i
 
 " Auto save when leaving the buffer
-au BufLeave * silent! wall
+"au BufLeave * silent! wall
 
 " Saner haskell tab/space handling
 set tabstop=8                   "A tab is 8 spaces
@@ -109,6 +113,12 @@ autocmd BufNewFile,BufRead *.jsonnet set syntax=json
 " Quickly insert pdb break point
 map <silent> <leader>b oimport pdb; pdb.set_trace()<esc>
 map <silent> <leader>B Oimport pdb; pdb.set_trace()<esc>
+
+" Remap to edit Fitbit gui files (SVG) to XML
+au BufNewFile,BufRead *.gui set filetype=xml
+
+" Toggle zoom shortcut for maximizing / restoring splits
+nmap <silent> <C-z> :ToggleZoom<CR>
 
 "-------------------"
 " END EDITOR CONFIG "
@@ -194,3 +204,20 @@ set updatetime=1000
 "-------------------"
 " END INTERO CONFIG "
 "-------------------"
+
+let g:lsc_server_commands = {'java': '/Users/vtatai/src/java-language-server/dist/mac/bin/launcher --quiet'}
+let g:lsc_auto_map = {
+    \ 'GoToDefinition': '<C-]>',
+    \ 'GoToDefinitionSplit': ['<C-W>]', '<C-W><C-]>'],
+    \ 'FindReferences': 'gr',
+    \ 'NextReference': '<C-n>',
+    \ 'PreviousReference': '<C-p>',
+    \ 'FindImplementations': 'gI',
+    \ 'FindCodeActions': 'ga',
+    \ 'Rename': 'gR',
+    \ 'ShowHover': v:true,
+    \ 'DocumentSymbol': 'go',
+    \ 'WorkspaceSymbol': 'gS',
+    \ 'SignatureHelp': 'gm',
+    \ 'Completion': 'completefunc',
+    \}
