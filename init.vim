@@ -17,7 +17,7 @@ Plug 'svanharmelen/vim-session' " Not using main fork due to nerdtree integratio
 Plug 'scrooloose/nerdcommenter'
 Plug 'neovimhaskell/haskell-vim'
 Plug 'mileszs/ack.vim'
-Plug 'JamshedVesuna/vim-markdown-preview'
+"Plug 'JamshedVesuna/vim-markdown-preview'
 Plug 'enomsg/vim-haskellConcealPlus'
 Plug 'cloudhead/neovim-fuzzy'
 Plug 'solarnz/thrift.vim'
@@ -29,6 +29,7 @@ Plug 'tpope/vim-fugitive'
 "Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
 Plug 'natebosch/vim-lsc'
 Plug 'jalused/ZoomSplit'
+Plug 'vim-airline/vim-airline'
 
 " Initialize plugin system
 call plug#end()
