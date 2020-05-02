@@ -121,6 +121,9 @@ au BufNewFile,BufRead *.gui set filetype=xml
 " Toggle zoom shortcut for maximizing / restoring splits
 nmap <silent> <C-z> :ToggleZoom<CR>
 
+" Autosave when leaving buffer
+:au FocusLost * silent! wall
+
 "-------------------"
 " END EDITOR CONFIG "
 "-------------------"
