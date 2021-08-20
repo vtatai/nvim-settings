@@ -132,8 +132,12 @@ nmap <silent> <C-z> :ToggleZoom<CR>
 " RANDOM PLUGS CONFIG "
 "---------------------"
 " Solarized
-set background=dark
+"set background=dark
+"let g:neosolarized_contrast = "high"
+"let g:neosolarized_visibility = "high"
+set termguicolors
 colorscheme NeoSolarized
+
 " haskell-vim config
 let g:haskell_classic_highlighting = 1 "disable horrendous haskell vim highlight
 " vim-session config
