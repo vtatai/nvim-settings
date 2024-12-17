@@ -46,6 +46,9 @@ vim.call('plug#end')
 -- END PLUG CONFIG --
 ---------------------
 
+-- This requires basepyright to be installed through pypi
+require('lspconfig').basedpyright.setup{}
+
 vim.cmd([[
 "---------------"
 " EDITOR CONFIG "
