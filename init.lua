@@ -49,6 +49,10 @@ vim.call('plug#end')
 -- This requires basepyright to be installed through pypi
 require('lspconfig').basedpyright.setup{}
 
+if vim.g.neovide then
+    vim.g.neovide_cursor_animation_length = 0.01
+end
+
 vim.cmd([[
 "---------------"
 " EDITOR CONFIG "
