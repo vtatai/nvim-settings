@@ -31,6 +31,11 @@ Plug 'natebosch/vim-lsc'
 Plug 'jalused/ZoomSplit'
 Plug 'vim-airline/vim-airline'
 
+" For some reason not working
+" Plug 'williamboman/mason.nvim', { 'branch': 'main' }
+
+Plug 'neovim/nvim-lspconfig'
+
 " Initialize plugin system
 call plug#end()
 "------------------"
@@ -94,6 +99,9 @@ nnoremap <silent><leader>p :CtrlP<CR>
 imap <C-e> <esc>$i<right>
 " Map CTRL-A to beginning-of-line (insert mode)
 imap <C-a> <esc>0i
+
+" Map Y to yank till EOL
+nmap Y y$
 
 " Auto save when leaving the buffer
 "au BufLeave * silent! wall
