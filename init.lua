@@ -1,47 +1,52 @@
-"---------------"
-" PLUG CONFIG
-"---------------"
-call plug#begin('~/.local/share/nvim/plugged')
+local vim = vim
+local Plug= vim.fn['plug#']
 
-Plug 'scrooloose/nerdtree'
-Plug 'iCyMind/NeoSolarized'
-Plug 'parsonsmatt/intero-neovim'
-Plug 'jlanzarotta/bufexplorer'
-" Plug 'thaerkh/vim-workspace'
-Plug 'xolox/vim-misc' " required by vim-session
-" Plug 'xolox/vim-session'
-" Plug 'vtatai/vim-session'
-Plug 'svanharmelen/vim-session' " Not using main fork due to nerdtree integration
-" Plug 'Shougo/unite.vim' " required by vimfiler
-" Plug 'Shougo/vimfiler.vim' " didnt work with vim-session
-Plug 'scrooloose/nerdcommenter'
-Plug 'neovimhaskell/haskell-vim'
-Plug 'mileszs/ack.vim'
-"Plug 'JamshedVesuna/vim-markdown-preview'
-Plug 'enomsg/vim-haskellConcealPlus'
-Plug 'cloudhead/neovim-fuzzy'
-Plug 'solarnz/thrift.vim'
-Plug 'tpope/vim-surround'
-Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-fugitive'
-"Plug 'weynhamz/vim-plugin-minibufexpl'
+-----------------
+-- PLUG CONFIG --
+-----------------
+vim.call('plug#begin', '~/.local/share/nvim/plugged')
 
-"Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
-Plug 'natebosch/vim-lsc'
-Plug 'jalused/ZoomSplit'
-Plug 'vim-airline/vim-airline'
+Plug('scrooloose/nerdtree')
+Plug('iCyMind/NeoSolarized')
+Plug('parsonsmatt/intero-neovim')
+Plug('jlanzarotta/bufexplorer')
+-- Plug('thaerkh/vim-workspace')
+Plug('xolox/vim-misc') -- required by vim-session
+-- Plug('xolox/vim-session')
+-- Plug('vtatai/vim-session')
+Plug('svanharmelen/vim-session') -- Not using main fork due to nerdtree integration
+-- Plug('Shougo/unite.vim') required by vimfiler
+-- Plug('Shougo/vimfiler.vim') " didnt work with vim-session
+Plug('scrooloose/nerdcommenter')
+Plug('neovimhaskell/haskell-vim')
+Plug('mileszs/ack.vim')
+--Plug('JamshedVesuna/vim-markdown-preview')
+Plug('enomsg/vim-haskellConcealPlus')
+Plug('cloudhead/neovim-fuzzy')
+Plug('solarnz/thrift.vim')
+Plug('tpope/vim-surround')
+Plug('airblade/vim-gitgutter')
+Plug('tpope/vim-fugitive')
+--Plug('weynhamz/vim-plugin-minibufexpl')
 
-" For some reason not working
-" Plug 'williamboman/mason.nvim', { 'branch': 'main' }
+--Plug('neoclide/coc.nvim', {'do': './install.sh nightly'})
+Plug('natebosch/vim-lsc')
+Plug('jalused/ZoomSplit')
+Plug('vim-airline/vim-airline')
 
-Plug 'neovim/nvim-lspconfig'
+-- For some reason not working
+-- Plug('williamboman/mason.nvim', { 'branch': 'main' })
 
-" Initialize plugin system
-call plug#end()
-"------------------"
-" END PLUG CONFIG
-"------------------"
+Plug('neovim/nvim-lspconfig')
 
+-- Initialize plugin system
+vim.call('plug#end')
+
+---------------------
+-- END PLUG CONFIG --
+---------------------
+
+vim.cmd([[
 "---------------"
 " EDITOR CONFIG "
 "---------------"
@@ -237,3 +242,5 @@ let g:lsc_auto_map = {
     \ 'SignatureHelp': 'gm',
     \ 'Completion': 'completefunc',
     \}
+
+]])
