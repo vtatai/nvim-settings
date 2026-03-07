@@ -17,12 +17,11 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   {
-    "overcache/NeoSolarized",
+    "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
     config = function()
-      vim.o.background = "dark"
-      vim.cmd.colorscheme("NeoSolarized")
+      vim.cmd.colorscheme("tokyonight-moon")
     end,
   },
   {
@@ -55,9 +54,26 @@ require("lazy").setup({
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = {
       options = {
-        theme = "solarized_dark",
+        theme = "tokyonight",
       },
     },
+  },
+  {
+    "numToStr/Comment.nvim",
+    event = "VeryLazy",
+    opts = {},
+  },
+  {
+    "kdheepak/lazygit.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    keys = {
+      { "<leader>lg", "<cmd>LazyGit<CR>", desc = "Open LazyGit" },
+    },
+  },
+  {
+    "lewis6991/gitsigns.nvim",
+    event = "VeryLazy",
+    opts = {},
   },
 })
 
