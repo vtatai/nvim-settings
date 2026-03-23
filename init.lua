@@ -132,6 +132,13 @@ if vim.fn.executable("rg") == 1 then
   vim.opt.grepformat = "%f:%l:%c:%m,%f:%l:%m"
 end
 
+-- Use neovim-remote so tools like lazygit open files in the parent nvim
+-- instead of spawning a nested instance
+if vim.fn.has("nvim") == 1 and vim.fn.executable("nvr") == 1 then
+  vim.env.GIT_EDITOR = "nvr -cc split --remote-wait +'set bufhidden=wipe'"
+  vim.env.VISUAL = "nvr -cc split --remote-wait +'set bufhidden=wipe'"
+end
+
 -- Keymaps
 vim.keymap.set("n", "<leader>ev", ":e $MYVIMRC<CR>", { silent = true })
 vim.keymap.set("n", "<leader>sv", ":so $MYVIMRC<CR>", { silent = true })
