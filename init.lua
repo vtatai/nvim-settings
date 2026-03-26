@@ -75,6 +75,51 @@ require("lazy").setup({
     event = "VeryLazy",
     opts = {},
   },
+  {
+    "sindrets/diffview.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    keys = {
+      { "<leader>do", "<cmd>DiffviewOpen<CR>", desc = "Open diff view" },
+      { "<leader>dc", "<cmd>DiffviewClose<CR>", desc = "Close diff view" },
+      { "<leader>dm", "<cmd>DiffviewOpen --imply-local<CR>", desc = "Merge conflict view" },
+    },
+    opts = {},
+  },
+  {
+    "folke/persistence.nvim",
+    event = "BufReadPre",
+    opts = {
+      pre_save = function()
+        local nvim_tree_api = pcall(require, "nvim-tree.api")
+        if nvim_tree_api then require("nvim-tree.api").tree.close() end
+      end,
+    },
+    keys = {
+      {
+        "<leader>qs",
+        function()
+          require("persistence").load()
+          vim.defer_fn(function()
+            local ok, api = pcall(require, "nvim-tree.api")
+            if ok then api.tree.open() end
+          end, 50)
+        end,
+        desc = "Restore session (cwd)",
+      },
+      {
+        "<leader>ql",
+        function()
+          require("persistence").load({ last = true })
+          vim.defer_fn(function()
+            local ok, api = pcall(require, "nvim-tree.api")
+            if ok then api.tree.open() end
+          end, 50)
+        end,
+        desc = "Restore last session",
+      },
+      { "<leader>qd", function() require("persistence").stop() end, desc = "Stop session auto-save" },
+    },
+  },
 })
 
 -- Editor options
