@@ -205,8 +205,11 @@ vim.keymap.set("n", "<C-h>", ":wincmd h<CR>", { silent = true })
 vim.keymap.set("n", "<C-l>", ":wincmd l<CR>", { silent = true })
 
 -- Insert blank lines without entering insert mode
+-- Mapped to both standard <A-j> and macOS special characters
 vim.keymap.set("n", "<A-j>", "m`o<Esc>``", { silent = true })
 vim.keymap.set("n", "<A-k>", "m`O<Esc>``", { silent = true })
+vim.keymap.set("n", "∆", "m`o<Esc>``", { silent = true }) -- Option-j on macOS US keyboard
+vim.keymap.set("n", "˚", "m`O<Esc>``", { silent = true }) -- Option-k on macOS US keyboard
 
 -- Insert mode navigation
 vim.keymap.set("i", "<C-e>", "<End>")
